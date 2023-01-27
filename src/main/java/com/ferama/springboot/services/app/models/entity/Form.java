@@ -30,16 +30,16 @@ public class Form implements Serializable {
 	public String address;
 	
 	@Column(name="email")
-	public String email;
+	public String email;// Validar que la estructura de correo sea correcto y agregar test JUnit
 	
 	@Column(name="phone_number")
-	public String phoneNumber;
+	public String phoneNumber;// Validar que el numero sea de Guatemala y agregar test JUnit
 	
 	@Column(name="course")
 	public String course;
 	
 	@Column(name="date_of_birth")
-	public String dateOfBirth;
+	public String dateOfBirth;//Cambiar tipo de dato
 
 	
 	
