@@ -1,6 +1,7 @@
 package com.ferama.springboot.services.app.models.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,7 +40,7 @@ public class Form implements Serializable {
 	public String course;
 	
 	@Column(name="date_of_birth")
-	public String dateOfBirth;//Cambiar tipo de dato
+	public Date dateOfBirth;
 
 	
 	
@@ -48,7 +49,7 @@ public class Form implements Serializable {
 	}
 
 	public Form(Long id, String firstName, String lastName, String address, String email, String phoneNumber,
-			String course, String dateOfBirth) {
+			String course, Date dateOfBirth) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -61,7 +62,7 @@ public class Form implements Serializable {
 	}
 
 	public Form(String firstName, String lastName, String address, String email, String phoneNumber, String course,
-			String dateOfBirth) {
+			Date dateOfBirth) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -128,11 +129,11 @@ public class Form implements Serializable {
 		this.course = course;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

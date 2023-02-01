@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ferama.springboot.services.app.models.entity.Form;
 import com.ferama.springboot.services.app.models.service.IFormServiceImp;
+import com.ferama.springboot.services.app.models.service.IValidateImp;
 
 
 @RestController
@@ -20,32 +21,23 @@ public class FormController {
 	
 	@Autowired
 	IFormServiceImp iFormServiceImp;
+	@Autowired
+	IValidateImp iValidateImp;
 	
 	@CrossOrigin(origins = "http://localhost:65245")
 	@GetMapping("/getAllForms")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Form> getAllForms() {
-		try {
 			return iFormServiceImp.readAllForm();
-		}catch(Exception ex) {
-			return null;
-		}
 	}
 	
 	@CrossOrigin(origins = "http://localhost:65245")
-	@PostMapping("/createForm")
+	@PostMapping("/registerForm")
 	@ResponseStatus(HttpStatus.CREATED)
 	public boolean createForm(@RequestBody Form form) {
-		try {
-			iFormServiceImp.createForm(form);
-			
-			System.out.println(form.address);
-			System.out.println(form.firstName);
-			System.out.println(form.dateOfBirth);
-			return true;
-		}catch(Exception ex) {
-			return false;
-		}
+			if(!iValidateImp.emailValidate(form.email)) return false;
+			if(!iValidateImp.phoneValidate(form.phoneNumber)) return false;
+			return iFormServiceImp.createForm(form);	
 	}
 
 }
