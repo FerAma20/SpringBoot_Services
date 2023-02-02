@@ -13,10 +13,14 @@ public class IFormServiceImp implements IFormService{
 
 	@Autowired
 	FormRepository formRepository;
+	@Autowired
+	IValidateImp iValidateImp;
 	
 	@Override
-	public boolean createForm(Form form) {
+	public boolean registerForm(Form form) {
 		try {
+			if(!iValidateImp.emailValidate(form.email)) return false;
+			if(!iValidateImp.phoneValidate(form.phoneNumber)) return false;
 			formRepository.save(form);
 			return true;
 		}catch(Exception ex) {

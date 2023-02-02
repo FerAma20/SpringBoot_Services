@@ -21,8 +21,6 @@ public class FormController {
 	
 	@Autowired
 	IFormServiceImp iFormServiceImp;
-	@Autowired
-	IValidateImp iValidateImp;
 	
 	@CrossOrigin(origins = "http://localhost:65245")
 	@GetMapping("/getAllForms")
@@ -34,10 +32,8 @@ public class FormController {
 	@CrossOrigin(origins = "http://localhost:65245")
 	@PostMapping("/registerForm")
 	@ResponseStatus(HttpStatus.CREATED)
-	public boolean createForm(@RequestBody Form form) {
-			if(!iValidateImp.emailValidate(form.email)) return false;
-			if(!iValidateImp.phoneValidate(form.phoneNumber)) return false;
-			return iFormServiceImp.createForm(form);	
+	public boolean registerForm(@RequestBody Form form) {
+			return iFormServiceImp.registerForm(form);
 	}
 
 }
