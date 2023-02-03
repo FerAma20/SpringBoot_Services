@@ -6,7 +6,7 @@ import com.ferama.springboot.services.app.models.entity.Form;
 
 public interface IFormService {
 	
-	boolean createForm (Form form);
+	boolean registerForm (Form form);
 	List<Form> readAllForm();
 
 }

@@ -19,7 +19,6 @@ public class SpringbootServicesIValidateTest {
 	@Test
 	void mailValidateTest () {
 		assertThat(iValidateImp.emailValidate("ferama22@gmail.com")).isTrue();
-		
 	}
 
 	@Test
