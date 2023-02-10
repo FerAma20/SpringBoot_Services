@@ -28,6 +28,6 @@ public class SpringBootServicesImpRepositoryTest {
 
     @Test
     void testReadAllForm(){
-        assertEquals(2,iFormServiceImp.readAllForm().size());
+        assertEquals(8,iFormServiceImp.readAllForm().size());
     }
 }
