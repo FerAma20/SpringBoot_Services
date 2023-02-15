@@ -2,13 +2,11 @@ package com.ferama.springboot.services.app;
 
 import com.ferama.springboot.services.app.models.entity.Form;
 import com.ferama.springboot.services.app.models.service.IFormServiceImp;
-import jakarta.persistence.criteria.From;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,6 +26,6 @@ public class SpringBootServicesImpRepositoryTest {
 
     @Test
     void testReadAllForm(){
-        assertEquals(8,iFormServiceImp.readAllForm().size());
+        assertEquals(11,iFormServiceImp.readAllForm().size());
     }
 }
